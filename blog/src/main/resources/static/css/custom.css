@@ -1,0 +1,54 @@
+.header-banner {
+    position: absolute;
+    margin-top: 0;
+    left: 0;
+    width: 100%;
+    height: 480px;
+    background-image: url('../img/asap5.jpg');
+    -webkit-filter: brightness(0.6);
+
+
+}
+.user-view {
+    margin-top: 20px;
+}
+.header-text {
+
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 0%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 50%;
+    right: 0;
+    z-index: 51;
+    -webkit-filter: brightness(1);
+    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+
+
+
+
+}
+h1.login {
+    color:white;
+    font-family:"News Cycle", "Arial Narrow Bold", sans-serif;
+    font-size: 80px;
+
+    font-weight: bold;
+
+}{
+    color: white;
+    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+
+}
+.article-text  {
+    position: relative;
+    display: block;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 9em; /* (Number of lines you want visible) * (line-height) */
+    line-height: 1.8em;
+    text-align:justify;
+}
