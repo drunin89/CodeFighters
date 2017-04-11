@@ -1,5 +1,6 @@
-<footer th:fragment="footer">
+<footer th:fragment="footer" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="container modal-footer">
         <p>&copy; 2017 - Code Fighters</p>
+        <b class="date-time-footer" th:text="${execInfo.now.time}"></b>
     </div>
 </footer>

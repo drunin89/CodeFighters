@@ -56,3 +56,15 @@ h1.login {
 
     margin-top: 10px;
 }
+.date-time-footer {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.data {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-size: medium;
+}
