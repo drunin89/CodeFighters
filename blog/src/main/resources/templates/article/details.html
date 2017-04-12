@@ -8,7 +8,7 @@
                     </header>
 
                     <p th:text="${article.content}"> </p>
-
+                    <img th:if="${article.imagePath} != null" th:src="${article.imagePath}" width="400px" alt="Article Image"/>
                     <small class="author" th:text="${article.author.fullName}"></small>
 
                     <footer>
