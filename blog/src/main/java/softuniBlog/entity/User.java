@@ -1,5 +1,7 @@
 package softuniBlog.entity;
 
+import org.hibernate.search.annotations.Field;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;

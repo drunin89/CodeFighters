@@ -2,6 +2,8 @@ package softuniBlog.entity;
 
 
 import org.aspectj.weaver.GeneratedReferenceTypeDelegate;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,13 +13,13 @@ import java.util.Date;
 public class Article {
 
     private Integer id;
-
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String title;
-
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String content;
-
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private Date date;
-
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private User author;
 
     private String imagePath;
@@ -46,6 +48,7 @@ public class Article {
     }
 
     @Column(name = "title", nullable = false)
+
     public String getTitle() {
         return title;
     }

@@ -5,13 +5,25 @@
             <h1 class="login">The Hacker Blog </h1>
             <h2 style="color: white;">A Hacker's Blog of Unintended Use and Insomnia.</h2>
         </div>
-
-
-
         <div class="row" style="margin-top: 50%">
             <aside class="aside col-lg-4">
-                <h2>Recent Articles</h2>
-                <a href="#" th:each="article: ${articles}" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}">Work Beggins on HTML</a>
+
+                <div class="authors">
+                    <h2>Authors</h2>
+                    <a style="font-size: large"
+                       href="#" th:each="article: ${articles}"
+                       th:text="${article.author.fullName}"
+                       th:href="@{/profile}">Work Beggins on HTML</a>
+                </div>
+                <div class="recent-posts">
+                    <h2>Recent Posts</h2>
+                    <a class="lines"
+                       href="#" th:each="article: ${articles}"
+                       th:text="${article.title}"
+                       th:href="@{/article/{id}(id=${article.id})}">Work Beggins on HTML</a>
+
+                </div>
+
             </aside>
             <th:block th:each="article : ${articles}">
                 <div class="col-md-8 text-justify ">
@@ -35,6 +47,7 @@
                                    th:href="@{/article/{id}(id=${article.id})}">Read more &raquo;</a>
                             </div>
                         </footer>
+                        <hr/>
                     </article>
                 </div>
 
