@@ -12,6 +12,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/about}">About</a></li>
                     <li sec:authorize="isAuthenticated()">
                         <a th:href="@{/article/create}">
                             Create Article
