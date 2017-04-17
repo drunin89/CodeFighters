@@ -168,7 +168,7 @@ body {
     margin-bottom: 10px;!important;
 }
 
-input[type="text"] {
+#search {
     height: 63px;
     font-size: 40px;
     display: inline-block;
@@ -189,11 +189,11 @@ input[type="text"] {
 
 }
 
-input[type="text"]:focus:hover {
+#search:focus:hover {
     border-bottom: 1px solid #BBB;
 }
 
-input[type="text"]:focus {
+#search:focus {
     width: 500px;
     z-index: 1;
     border-bottom: 1px solid black;
