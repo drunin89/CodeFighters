@@ -5,15 +5,43 @@
             <h1 class="login">The Hacker Blog </h1>
             <h2 style="color: white;">A Hacker's Blog of Unintended Use and Insomnia.</h2>
         </div>
-        <div class="row" style="margin-top: 50%">
+
+        <div class="contact-us">
+            <a  href="https://www.facebook.com/ivailo.atanasov.56">
+                <img src="../img/1492434355_Facebook_social_media_logo.png" alt="Facebook"></img>
+            </a>
+            <a href="https://github.com/IvailoAtanasov">
+                <img src="../img/1492434455_Github_social_media_logo.png" alt="Github"></img>
+            </a>
+            <a href="https://www.linkedin.com/in/ivaylo-atanasov-856953117/">
+                <img src="../img/1492434499_Linkedin_social_media_logo.png" alt="Linkedin"></img>
+            </a>
+            <a href="https://www.youtube.com/">
+                <img src="../img/1492444862_YouTube_social_media_logo-.png" alt="Facebook"></img>
+            </a>
+            <a href="https://twitter.com/atanasov_ivailo?lang=en-gb">
+                <img src="../img/1492443137_Twitter_social_media_logo.png" alt="Facebook"></img>
+            </a>
+            <div id="wrap">
+                <form action="" autocomplete="on">
+                    <input id="search" name="search" type="text" placeholder="What're we looking for ?"></input>
+                    <input id="search_submit" value="Rechercher" type="submit"></input>
+                </form>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 55%">
             <aside class="aside col-lg-4">
 
                 <div class="authors">
-                    <h2>Authors</h2>
-                    <a style="font-size: large"
-                       href="#" th:each="article: ${articles}"
-                       th:text="${article.author.fullName}"
-                       th:href="@{/profile}">Work Beggins on HTML</a>
+                    <h2>Authors Team</h2>
+
+                    <a>Ivaylo Atanasov</a>
+                    <a>Georgy Drunin</a>
+                    <a>Rosen Rekin</a>
+                    <a>Greta Bratvanova</a>
+
+
                 </div>
                 <div class="recent-posts">
                     <h2>Recent Posts</h2>
