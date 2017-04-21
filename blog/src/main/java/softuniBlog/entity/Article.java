@@ -4,22 +4,27 @@ package softuniBlog.entity;
 import org.aspectj.weaver.GeneratedReferenceTypeDelegate;
 import org.hibernate.search.annotations.*;
 import org.hibernate.search.annotations.Index;
+import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Indexed
 @Table(name = "articles")
 public class Article {
 
     private Integer id;
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    @NotNull
     private String title;
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    @NotNull
     private String content;
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+
+
     private Date date;
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+
     private User author;
 
     private String imagePath;
