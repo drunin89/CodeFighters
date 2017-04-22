@@ -32,13 +32,15 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("view", "user/register");
 
+        model.addAttribute("view", "user/register");
         return "base-layout";
     }
 
     @PostMapping("/register")
     public String registerProcess(UserBindingModel userBindingModel){
+
+
 
         if(!userBindingModel.getPassword().equals(userBindingModel.getConfirmPassword())){
             return "redirect:/register";
@@ -65,18 +67,15 @@ public class UserController {
     public String login(Model model){
 
         model.addAttribute("view", "user/login");
-
         return "base-layout";
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-
         return "redirect:/login?logout";
     }
 
@@ -87,15 +86,8 @@ public class UserController {
                 .getAuthentication()
                 .getPrincipal();
 
-
-        User users = this.userRepository.findByEmail(principal.getUsername());
-        Object currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserDetails user = (UserDetails) currentUser;
-        String name = this.userRepository.findByEmail(user.getUsername()).getFullName();
-        model.addAttribute("username",name);
-
-
-        model.addAttribute("user", users);
+        User user = this.userRepository.findByEmail(principal.getUsername());
+        model.addAttribute("user", user);
         model.addAttribute("view", "user/profile");
 
         return "base-layout";

@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import softuniBlog.bindingModel.ArticleBindingModel;
 import softuniBlog.entity.Article;
 import softuniBlog.entity.User;
@@ -32,10 +30,6 @@ public class ArticleConstroller {
     @PreAuthorize("isAuthenticated()")
     public String create(Model model){
 
-        Object currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserDetails user = (UserDetails) currentUser;
-        String name = this.userRepository.findByEmail(user.getUsername()).getFullName();
-        model.addAttribute("username",name);
         model.addAttribute("view", "/article/create");
         return "base-layout";
     }
@@ -100,10 +94,6 @@ public class ArticleConstroller {
     @GetMapping("/article/edit/{id}")
     @PreAuthorize("isAuthenticated()")
     public String edit(@PathVariable Integer id, Model model){
-        Object currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserDetails user = (UserDetails) currentUser;
-        String name = this.userRepository.findByEmail(user.getUsername()).getFullName();
-        model.addAttribute("username",name);
         if(!this.articleRepository.exists(id)){
             return "redirect:/";
         }
@@ -123,7 +113,6 @@ public class ArticleConstroller {
 
     @GetMapping("/article/{id}")
     public String details(Model model, @PathVariable Integer id) {
-        
         if(!this.articleRepository.exists(id)){
             return "redirect:/";
         }

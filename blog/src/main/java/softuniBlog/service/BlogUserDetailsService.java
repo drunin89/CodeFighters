@@ -25,6 +25,7 @@ public class BlogUserDetailsService implements UserDetailsService {
 		User user = userRepository.findByEmail(email);
 
 
+
 		if (user == null) {
 			throw new UsernameNotFoundException("Invalid User");
 		} else {
