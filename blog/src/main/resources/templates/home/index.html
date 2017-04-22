@@ -46,7 +46,7 @@
                 <div class="recent-posts">
                     <h2>Recent Posts</h2>
                     <a class="lines"
-                       href="#" th:each="article: ${articles}"
+                       href="#" th:each="article: ${latest5articles}"
                        th:text="${article.title}"
                        th:href="@{/article/{id}(id=${article.id})}">Work Beggins on HTML</a>
 

@@ -123,10 +123,7 @@ public class ArticleConstroller {
 
     @GetMapping("/article/{id}")
     public String details(Model model, @PathVariable Integer id) {
-        Object currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserDetails user = (UserDetails) currentUser;
-        String name = this.userRepository.findByEmail(user.getUsername()).getFullName();
-        model.addAttribute("username",name);
+        
         if(!this.articleRepository.exists(id)){
             return "redirect:/";
         }
