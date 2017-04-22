@@ -14,7 +14,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a th:href="@{/}">Home</a></li>
+
                     <li><a th:href="@{/about}">About</a></li>
+
                     <li sec:authorize="isAuthenticated()">
                         <a th:href="@{/article/create}">
                             Create Article
@@ -22,7 +24,7 @@
                     </li>
 
                     <li sec:authorize="isAuthenticated()">
-                        <a th:href="@{/profile}" sec:authentication="name">name</a>
+                        <a th:href="@{/profile}" th:text="${username}"></a>
 
                     </li>
                     <li sec:authorize="isAuthenticated()">

@@ -63,6 +63,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(Model model){
+
         model.addAttribute("view", "user/login");
 
         return "base-layout";
@@ -87,11 +88,14 @@ public class UserController {
                 .getPrincipal();
 
 
-        User user = this.userRepository.findByEmail(principal.getUsername());
+        User users = this.userRepository.findByEmail(principal.getUsername());
+        Object currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails user = (UserDetails) currentUser;
+        String name = this.userRepository.findByEmail(user.getUsername()).getFullName();
+        model.addAttribute("username",name);
 
 
-
-        model.addAttribute("user", user);
+        model.addAttribute("user", users);
         model.addAttribute("view", "user/profile");
 
         return "base-layout";
