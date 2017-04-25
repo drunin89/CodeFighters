@@ -49,4 +49,23 @@
             </form>
         </div>
     </div>
+    <br/>
+    <th:block th:each="comment : ${article.comments}">
+        <div class="col-md-8 text-justify ">
+            <comment>
+                <header>
+                    <div class="data">
+                        <span th:text="${comment.author.fullName}">Ivaylo</span>
+
+                        <i>on</i>
+                        <span th:text="${#dates.format(comment.date, 'dd-MMM-yyyy')}" >22-May-2016</span>
+                    </div>
+                </header>
+
+                <p class="article-text" th:text="${comment.content}"></p>
+                <hr/>
+            </comment>
+        </div>
+
+    </th:block>
 </main>
