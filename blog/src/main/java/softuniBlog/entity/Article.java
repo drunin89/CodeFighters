@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Indexed
@@ -29,12 +31,16 @@ public class Article {
 
     private String imagePath;
 
+    private Set<Comment> comments;
+
     public Article(String title, String content, User author, String imagePath) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.imagePath = imagePath;
         this.date = new Date();
+
+        this.comments=new HashSet<>();
     }
 
     public Article(){
@@ -100,5 +106,14 @@ public class Article {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    @OneToMany(mappedBy = "article")
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }
