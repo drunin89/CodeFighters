@@ -1,33 +1,36 @@
 <main xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="container body-content">
-        <div class="header-banner"></div>
-        <div class="header-text">
-            <h1 class="login">The Hacker Blog </h1>
-            <h2 style="color: white;">A Hacker's Blog of Unintended Use and Insomnia.</h2>
-        </div>
-
-        <div class="contact-us">
-            <a  href="https://www.facebook.com/ivailo.atanasov.56">
-                <img src="../img/1492434355_Facebook_social_media_logo.png" alt="Facebook"></img>
-            </a>
-            <a href="https://github.com/IvailoAtanasov">
-                <img src="../img/1492434455_Github_social_media_logo.png" alt="Github"></img>
-            </a>
-            <a href="https://www.linkedin.com/in/ivaylo-atanasov-856953117/">
-                <img src="../img/1492434499_Linkedin_social_media_logo.png" alt="Linkedin"></img>
-            </a>
-            <a href="https://www.youtube.com/">
-                <img src="../img/1492444862_YouTube_social_media_logo-.png" alt="Facebook"></img>
-            </a>
-            <a href="https://twitter.com/atanasov_ivailo?lang=en-gb">
-                <img src="../img/1492443137_Twitter_social_media_logo.png" alt="Facebook"></img>
-            </a>
-            <div id="wrap">
-                <form action="/search" method="GET" autocomplete="on">
-                    <input id="search" name="search" type="text" placeholder="What're we looking for ?"></input>
-                    <input id="search_submit" type="submit"  value="Rechercher" ></input>
-                </form>
+        <div class="row">
+            <div class="header-banner"></div>
+            <div class="header-text">
+                <h1 class="login">The Hacker Blog </h1>
+                <h2 style="color: white;">A Hacker's Blog of Unintended Use and Insomnia.</h2>
             </div>
+
+            <div class="row" id="contact-us">
+                <a  href="https://www.facebook.com/ivailo.atanasov.56">
+                    <img src="../img/1492434355_Facebook_social_media_logo.png" alt="Facebook"></img>
+                </a>
+                <a href="https://github.com/IvailoAtanasov">
+                    <img src="../img/1492434455_Github_social_media_logo.png" alt="Github"></img>
+                </a>
+                <a href="https://www.linkedin.com/in/ivaylo-atanasov-856953117/">
+                    <img src="../img/1492434499_Linkedin_social_media_logo.png" alt="Linkedin"></img>
+                </a>
+                <a href="https://www.youtube.com/">
+                    <img src="../img/1492444862_YouTube_social_media_logo-.png" alt="Facebook"></img>
+                </a>
+                <a href="https://twitter.com/atanasov_ivailo?lang=en-gb">
+                    <img src="../img/1492443137_Twitter_social_media_logo.png" alt="Facebook"></img>
+                </a>
+                <div id="wrap">
+                    <form action="/search" method="GET" autocomplete="on">
+                        <input id="search" name="search" type="text" placeholder="What're we looking for ?"></input>
+                        <input id="search_submit" type="submit"  value="Rechercher" ></input>
+                    </form>
+                </div>
+            </div>
+
         </div>
 
         <div class="row" style="margin-top: 55%">
@@ -53,6 +56,8 @@
                 </div>
 
             </aside>
+
+
             <th:block th:each="article : ${articles}">
                 <div class="col-md-8 text-justify ">
 
