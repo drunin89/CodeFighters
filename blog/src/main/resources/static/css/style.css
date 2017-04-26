@@ -4290,12 +4290,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 19.5px 15px;
   font-size: 22px;
   line-height: 20px;
-  height: 60px;
+  height: 40px;
+  width: 286px;
+  margin-top: 10px;
+  background: url("../img/code3.PNG");
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+
 
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
+  border: solid;
 }
 .navbar-brand > img {
   display: block;

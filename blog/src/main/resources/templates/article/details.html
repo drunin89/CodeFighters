@@ -52,28 +52,32 @@
     </div>
     <br/>
     <th:block th:each="comment : ${article.comments}">
-        <div class="col-md-8 text-justify ">
-            <comment>
-                <header>
-                    <div class="data">
-                        <span th:text="${comment.author.fullName}">Ivaylo</span>
+        <div class="comment">
+            <div class="col-md-8 text-justify ">
+                <comment>
+                    <header>
+                        <div class="data">
+                            <span th:text="${comment.author.fullName}">Ivaylo</span>
 
-                        <i>on</i>
-                        <span th:text="${#dates.format(comment.date, 'dd-MMM-yyyy')}" >22-May-2016</span>
-                    </div>
-                </header>
+                            <i>on</i>
+                            <span th:text="${#dates.format(comment.date, 'dd-MMM-yyyy')}" >22-May-2016</span>
+                        </div>
+                    </header>
 
-                <p class="article-text" th:text="${comment.content}"></p>
-                <hr/>
-                <footer>
 
-                    <div class="pull-right">
+                    <p class="article-text" th:text="${comment.content}"></p>
+                    <div class="edit-button">
                         <th:block sec:authorize="isAuthenticated()" th:if="${user.isAdmin() OR user.isCommentAuthor(comment)}">
                             <a class="btn btn-success btn-xs" th:href="@{/article/commentEdit/{id}(id = ${comment.id})}">Edit</a>
                         </th:block>
                     </div>
-                </footer>
-            </comment>
+
+                    <footer>
+
+
+                    </footer>
+                </comment>
+            </div>
         </div>
 
     </th:block>
