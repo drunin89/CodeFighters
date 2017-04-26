@@ -70,7 +70,7 @@ public class ArticleConstroller {
             File imageFile = new File(savePath);
             try {
                 articleBindingModel.getImage().transferTo(imageFile);
-                databasePathImage = "static/img/" + fileName;
+                databasePathImage = "/img/" + fileName;
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
