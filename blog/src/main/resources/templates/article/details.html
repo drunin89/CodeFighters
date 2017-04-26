@@ -65,6 +65,14 @@
 
                 <p class="article-text" th:text="${comment.content}"></p>
                 <hr/>
+                <footer>
+
+                    <div class="pull-right">
+                        <th:block sec:authorize="isAuthenticated()" th:if="${user.isAdmin() OR user.isCommentAuthor(comment)}">
+                            <a class="btn btn-success btn-xs" th:href="@{/article/commentEdit/{id}(id = ${comment.id})}">Edit</a>
+                        </th:block>
+                    </div>
+                </footer>
             </comment>
         </div>
 

@@ -118,4 +118,10 @@ public class User {
         this.comments = comments;
     }
 
+    @Transient
+    public boolean isCommentAuthor(Comment comment){
+        return Objects.equals(this.getId(),comment.getAuthor().getId());
+
+    }
+
 }

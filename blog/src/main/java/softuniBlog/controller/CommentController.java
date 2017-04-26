@@ -74,6 +74,51 @@ public class CommentController {
 
     }
 
+    @GetMapping("/article/commentEdit/{id}")
+    @PreAuthorize("isAuthenticated()")
+    public String edit(@PathVariable Integer id, Model model){
+        if(!this.commentRepository.exists(id)){
+            return "redirect:/";
+        }
+        Comment comment = this.commentRepository.findOne(id);
+
+        if(!this.isUserCommentAuthorOrAdmin(comment)){
+            return "redirect:/";
+        }
+
+        model.addAttribute("view", "article/commentEdit");
+        model.addAttribute("comment", comment);
+
+        return "base-layout";
+    }
+
+    @PostMapping("/article/commentEdit/{id}")
+    @PreAuthorize("isAuthenticated()")
+    public String editProcess(@PathVariable Integer id, CommentBindingModel commentBindingModel) {
+        if(!this.commentRepository.exists(id)){
+            return "redirect:/";
+        }
+        Comment comment = this.commentRepository.findOne(id);
+        Article article = this.articleRepository.findOne(id);
+        if(!this.isUserCommentAuthorOrAdmin(comment)){
+            return "redirect:/";
+        }
+        comment.setContent(commentBindingModel.getContent());
+        this.commentRepository.saveAndFlush(comment);
+        return "redirect:/article/{id}";
+
+    }
+
+    private boolean isUserCommentAuthorOrAdmin(Comment comment){
+        UserDetails user = (UserDetails) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
+
+        User userEntity = this.userRepository.findByEmail(user.getUsername());
+        return userEntity.isAdmin() || userEntity.isCommentAuthor(comment);
+    }
+
 
 
 }
