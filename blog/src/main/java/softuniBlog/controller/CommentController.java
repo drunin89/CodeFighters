@@ -109,6 +109,39 @@ public class CommentController {
 
     }
 
+    @GetMapping("/article/commentDelete/{id}")
+    @PreAuthorize("isAuthenticated()")
+    public String delete(@PathVariable Integer id, Model model){
+        if(!this.commentRepository.exists(id)){
+            return "redirect:/";
+        }
+
+        Comment comment = this.commentRepository.findOne(id);
+        if(!this.isUserCommentAuthorOrAdmin(comment)){
+            return "redirect:/";
+        }
+        model.addAttribute("comment", comment);
+        model.addAttribute("view", "article/commentDelete");
+
+        return "base-layout";
+    }
+
+    @PostMapping("/article/commentDelete/{id}")
+    @PreAuthorize("isAuthenticated()")
+    public String deleteProcess(@PathVariable Integer id) {
+        if(!this.commentRepository.exists(id)){
+            return "redirect:/";
+        }
+        Comment comment = this.commentRepository.findOne(id);
+        if(!this.isUserCommentAuthorOrAdmin(comment)){
+            return "redirect:/";
+        }
+        this.commentRepository.delete(comment);
+
+        return "redirect:/";
+
+    }
+
     private boolean isUserCommentAuthorOrAdmin(Comment comment){
         UserDetails user = (UserDetails) SecurityContextHolder
                 .getContext()

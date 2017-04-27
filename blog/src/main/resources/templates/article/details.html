@@ -69,6 +69,7 @@
                     <div class="edit-button">
                         <th:block sec:authorize="isAuthenticated()" th:if="${user.isAdmin() OR user.isCommentAuthor(comment)}">
                             <a class="btn btn-success btn-xs" th:href="@{/article/commentEdit/{id}(id = ${comment.id})}">Edit</a>
+                            <a class="btn btn-danger btn-xs" th:href="@{/article/commentDelete/{id}(id = ${comment.id})}">Delete</a>
                         </th:block>
                     </div>
 
